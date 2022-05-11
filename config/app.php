@@ -183,6 +183,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+         * Module Service Providers...
+         */
+        Mlk\Home\Providers\HomeServiceProvider::class,
+        /*
          * Package Service Providers...
          */
 
