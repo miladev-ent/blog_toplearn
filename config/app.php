@@ -186,6 +186,8 @@ return [
          * Module Service Providers...
          */
         Mlk\Home\Providers\HomeServiceProvider::class,
+        Mlk\User\Providers\UserServiceProvider::class,
+        Mlk\Auth\Providers\AuthServiceProvider::class,
         /*
          * Package Service Providers...
          */

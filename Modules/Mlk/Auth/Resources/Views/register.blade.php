@@ -1,0 +1,2 @@
+@extends('Auth::layouts.master')
+
