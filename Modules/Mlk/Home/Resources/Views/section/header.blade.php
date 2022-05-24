@@ -381,6 +381,42 @@
                                         تماس با ما
                                     </a>
                                 </li>
+                                @auth
+                                    <li>
+                                        <a href="">
+                                            <span class="ml-15">
+                                                <ion-icon name="mail-unread-outline"></ion-icon>
+                                            </span>
+                                            {{ auth()->user()->name }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}">
+                                            <span class="ml-15">
+                                                <ion-icon name="mail-unread-outline"></ion-icon>
+                                            </span>
+                                           خروج از حساب کاربری
+                                        </a>
+                                    </li>
+                                @endauth
+                                @guest
+                                    <li>
+                                        <a href="{{ route('auth.register') }}">
+                                            <span class="ml-15">
+                                                <ion-icon name="mail-unread-outline"></ion-icon>
+                                            </span>
+                                            ثبت نام
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('login') }}">
+                                            <span class="ml-15">
+                                                <ion-icon name="mail-unread-outline"></ion-icon>
+                                            </span>
+                                            ورود
+                                        </a>
+                                    </li>
+                                @endauth
                             </ul>
                             <div class="d-inline mr-50 tools-icon">
                                 <a class="red-tooltip text-danger" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="موضوعات جدید">

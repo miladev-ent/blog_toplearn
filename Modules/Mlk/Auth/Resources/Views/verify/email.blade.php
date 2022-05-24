@@ -5,12 +5,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-5">
-            <div class="text-center">
-                <a href="{{ route('home.index') }}">
-                    <span><img src="{{ asset('admin/images/logo-dark.png') }}" alt="تصویر" height="22"></span>
-                </a>
-                <p class="text-muted mt-2 mb-4">سایت خبری پیشرفته تاپ لرن</p>
-            </div>
+            @include('Auth::section.logo')
             @if (session()->has('message'))
                 <div class="alert alert-success">{{ session()->get('message') }}</div>
             @endif

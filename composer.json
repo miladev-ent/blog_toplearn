@@ -26,7 +26,8 @@
             "Database\\Seeders\\": "database/seeders/",
             "Mlk\\Home\\": "Modules/Mlk/Home/",
             "Mlk\\User\\": "Modules/Mlk/User/",
-            "Mlk\\Auth\\": "Modules/Mlk/Auth/"
+            "Mlk\\Auth\\": "Modules/Mlk/Auth/",
+            "Mlk\\Panel\\": "Modules/Mlk/Panel/"
         }
     },
     "autoload-dev": {

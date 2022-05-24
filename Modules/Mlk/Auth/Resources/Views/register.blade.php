@@ -5,12 +5,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-5">
-            <div class="text-center">
-                <a href="#">
-                    <span><img src="{{ asset('admin/images/logo-dark.png') }}" alt="تصویر" height="22"></span>
-                </a>
-                <p class="text-muted mt-2 mb-4">سایت خبری پیشرفته تاپ لرن</p>
-            </div>
+            @include('Auth::section.logo')
             <div class="card">
                 <div class="card-body p-4">
                     <div class="text-center mb-4">
@@ -35,7 +30,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="name">رمز عبور</label>
+                            <label for="password">رمز عبور</label>
                             <input class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}"
                             type="password" id="password" name="password" placeholder="رمز عبور خود را وارد کنید">
                             @error('password')
@@ -59,7 +54,7 @@
             <div class="row mt-3">
                 <div class="col-12 text-center">
                     <p class="text-muted">حساب کاربری دارید؟
-                        <a href="{{ route('auth.login') }}" class="text-dark ml-1"><b>وارد شوید</b></a>
+                        <a href="{{ route('login') }}" class="text-dark ml-1"><b>وارد شوید</b></a>
                     </p>
                 </div>
             </div>
