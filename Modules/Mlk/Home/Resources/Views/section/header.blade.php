@@ -391,7 +391,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('logout') }}">
+                                        <a href="{{ route('auth.logout') }}">
                                             <span class="ml-15">
                                                 <ion-icon name="mail-unread-outline"></ion-icon>
                                             </span>
