@@ -28,7 +28,8 @@
             "Mlk\\Home\\": "Modules/Mlk/Home/",
             "Mlk\\User\\": "Modules/Mlk/User/",
             "Mlk\\Auth\\": "Modules/Mlk/Auth/",
-            "Mlk\\Panel\\": "Modules/Mlk/Panel/"
+            "Mlk\\Panel\\": "Modules/Mlk/Panel/",
+            "Mlk\\Category\\": "Modules/Mlk/Category/"
         }
     },
     "autoload-dev": {

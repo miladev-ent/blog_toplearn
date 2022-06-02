@@ -5,5 +5,6 @@ return [
         'panel' => [],
         'home' => [],
         'users' => [],
+        'categories' => [],
     ],
 ];

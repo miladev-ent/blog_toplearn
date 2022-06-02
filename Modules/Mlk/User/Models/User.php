@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Mlk\Category\Models\Category;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -31,5 +32,11 @@ class User extends Authenticatable implements MustVerifyEmail
         if($this->email_verified_at) return 'success';
 
         return 'danger';
+    }
+
+    // Relations
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
     }
 }

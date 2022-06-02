@@ -3,10 +3,8 @@
 namespace Mlk\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Mlk\User\Http\Requests\UserRequest;
 use Mlk\User\Http\Requests\UserUpdateRequest;
-use Mlk\User\Models\User;
 use Mlk\User\Repositories\UserRepo;
 use Mlk\User\Services\UserService;
 

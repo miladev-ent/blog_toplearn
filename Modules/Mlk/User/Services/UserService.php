@@ -2,7 +2,6 @@
 
 namespace Mlk\User\Services;
 
-use Illuminate\Support\Facades\Hash;
 use Mlk\User\Models\User;
 
 class UserService
