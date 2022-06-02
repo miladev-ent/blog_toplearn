@@ -8,7 +8,7 @@ class UserRepo
 {
     public function index()
     {
-        return User::query()->latest()->paginate(10);
+        return User::query()->where('id', '!=', auth()->id())->latest()->paginate(10);
     }
 
     public function findById($id)

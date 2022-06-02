@@ -13,6 +13,10 @@
                         </a>
                     </div>
                     <h4 class="mt-0 header-title">لیست تمامی کاربران</h4>
+                    @if (session()->has('success_delete'))
+                        <br>
+                        <div class="alert alert-success">{{ session()->get('success_delete') }}</div>
+                    @endif
                     <br>
                     <div class="table-responsive">
                         <table class="table table-striped mb-0">
@@ -46,9 +50,13 @@
                                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
-                                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-danger ml-1">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
+                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger ml-1">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>

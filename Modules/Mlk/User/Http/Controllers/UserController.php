@@ -60,6 +60,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->repo->delete($id);
-        return to_route('users.index');
+        return to_route('users.index')->with(['success_delete' => 'کاربر با موفقیت حذف شد']);
     }
 }
