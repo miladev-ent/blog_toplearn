@@ -2,8 +2,11 @@
 
 namespace Mlk\Panel\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Mlk\Panel\Models\Panel;
+use Mlk\Panel\Policies\PanelPolicy;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -13,6 +16,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'panelConfig');
 
         Route::middleware('web')->namespace('Mlk\Panel\Http\Controllers')->group(__DIR__ . '/../Routes/panel_routes.php');
+        Gate::policy(Panel::class, PanelPolicy::class);
     }
 
     public function boot()

@@ -3,9 +3,13 @@
 namespace Mlk\Role\Providers;
 
 use Database\Seeders\DatabaseSeeder;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Mlk\Role\Database\Seeders\PermissionSeeder;
+use Mlk\Role\Models\Permission;
+use Mlk\Role\Models\Role;
+use Mlk\Role\Policies\RolePolicy;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -18,6 +22,11 @@ class RoleServiceProvider extends ServiceProvider
         Route::middleware('web')->namespace('Mlk\Role\Http\Controllers')
         ->group(__DIR__ . '/../Routes/role_routes.php');
         DatabaseSeeder::$seeders[] = PermissionSeeder::class;
+
+        Gate::policy(Role::class, RolePolicy::class);
+        Gate::before(static function ($user) {
+            return $user->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN) ? true : null;
+        });
     }
 
     public function boot()

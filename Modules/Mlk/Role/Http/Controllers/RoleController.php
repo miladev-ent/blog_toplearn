@@ -4,6 +4,7 @@ namespace Mlk\Role\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Mlk\Role\Http\Requests\RoleRequest;
+use Mlk\Role\Models\Role;
 use Mlk\Role\Repositories\PermissionRepo;
 use Mlk\Role\Repositories\RoleRepo;
 use Mlk\Role\Services\RoleService;
@@ -21,18 +22,23 @@ class RoleController extends Controller
 
     public function index()
     {
+        $this->authorize('index', Role::class);
         $roles = $this->repo->index()->paginate(10);
+
         return view('Role::index', compact('roles'));
     }
 
     public function create(PermissionRepo $permissionRepo)
     {
+        $this->authorize('index', Role::class);
         $permissions = $permissionRepo->all();
+
         return view('Role::create', compact('permissions'));
     }
 
     public function store(RoleRequest $request)
     {
+        $this->authorize('index', Role::class);
         $this->service->store($request);
 
         alert()->success('ساخت مقام', 'مقام با موفقیت ساخته شد');
@@ -41,6 +47,7 @@ class RoleController extends Controller
 
     public function edit($id, PermissionRepo $permissionRepo)
     {
+        $this->authorize('index', Role::class);
         $role = $this->repo->findById($id);
         $permissions = $permissionRepo->all();
 
@@ -49,6 +56,7 @@ class RoleController extends Controller
 
     public function update(RoleRequest $request, $id)
     {
+        $this->authorize('index', Role::class);
         $this->service->update($request, $id);
 
         alert()->success('ویرایش مقام', 'مقام با موفقیت ویرایش شد');
@@ -57,6 +65,7 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('index', Role::class);
         $this->repo->delete($id);
 
         alert()->success('حذف مقام', 'مقام با موفقیت حذف شد');
