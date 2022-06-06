@@ -24,4 +24,14 @@ class UserService
             'password' => bcrypt($request->password),
         ]);
     }
+
+    public function addRole($role, $user)
+    {
+        return $user->assignRole($role);
+    }
+
+    public function deleteRole($user, $role)
+    {
+        return $user->removeRole($role);
+    }
 }
