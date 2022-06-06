@@ -190,10 +190,11 @@ return [
         Mlk\Auth\Providers\AuthServiceProvider::class,
         Mlk\Panel\Providers\PanelServiceProvider::class,
         Mlk\Category\Providers\CategoryServiceProvider::class,
+        Mlk\Role\Providers\RoleServiceProvider::class,
         /*
          * Package Service Providers...
          */
-
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Application Service Providers...
          */

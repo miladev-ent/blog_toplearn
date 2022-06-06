@@ -10,7 +10,8 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "morilog/jalali": "3.*"
+        "morilog/jalali": "3.*",
+        "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -29,7 +30,8 @@
             "Mlk\\User\\": "Modules/Mlk/User/",
             "Mlk\\Auth\\": "Modules/Mlk/Auth/",
             "Mlk\\Panel\\": "Modules/Mlk/Panel/",
-            "Mlk\\Category\\": "Modules/Mlk/Category/"
+            "Mlk\\Category\\": "Modules/Mlk/Category/",
+            "Mlk\\Role\\": "Modules/Mlk/Role/"
         }
     },
     "autoload-dev": {
