@@ -25,4 +25,9 @@ class RoleRequest extends FormRequest
 
         return $rules;
     }
+
+    public function attributes()
+    {
+        return ['permissions' => 'دسترسی ها'];
+    }
 }

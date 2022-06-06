@@ -13,6 +13,7 @@ class RoleServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views/', 'Role');
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations/');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../Resources/Lang/');
 
         Route::middleware('web')->namespace('Mlk\Role\Http\Controllers')
         ->group(__DIR__ . '/../Routes/role_routes.php');
