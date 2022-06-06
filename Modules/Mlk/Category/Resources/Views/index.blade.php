@@ -13,9 +13,9 @@
                         </a>
                     </div>
                     <h4 class="mt-0 header-title">لیست تمامی دسته بندی</h4>
-                    @if (session()->has('success_delete'))
+                    @if (session()->has('success_message'))
                         <br>
-                        <div class="alert alert-success">{{ session()->get('success_delete') }}</div>
+                        <div class="alert alert-success">{{ session()->get('success_message') }}</div>
                     @endif
                     <br>
                     <div class="table-responsive">
@@ -38,10 +38,10 @@
                                         <td>{{ $category->title }}</td>
                                         <td>
                                             <span class="badge badge-primary">
-                                                {{ $category->status }}
+                                                @lang($category->status)
                                             </span>
                                         </td>
-                                        <td>{{ $category->parent }}</td>
+                                        <td>{{ $category->getParent() }}</td>
                                         <td>{{ $category->user->name }}</td>
                                         <td>{{ jdate($category->created_at)->format('Y-m-d') }}</td>
                                         <td>
@@ -49,6 +49,13 @@
                                                 <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
+                                                <form action="{{ route('categories.change.status', $category->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button type="submit" class="btn btn-dark ml-1">
+                                                        <i class="fas fa-spinner"></i>
+                                                    </button>
+                                                </form>
                                                 <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

@@ -32,4 +32,12 @@ class Category extends Model
     {
         return $this->hasMany(__CLASS__, 'parent_id');
     }
+
+    // Methods
+    public function getParent()
+    {
+        if (is_null($this->parent_id)) return 'ندارد';
+
+        return $this->parentCategory->title;
+    }
 }

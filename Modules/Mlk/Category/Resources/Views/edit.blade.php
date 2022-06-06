@@ -45,7 +45,7 @@
                                             <select class="form-control @error('status') is-invalid @enderror" name="status">
                                                 @foreach (Mlk\Category\Models\Category::$statuses as $status)
                                                     <option @if ($category->status === $status) selected @endif
-                                                        value="{{ $status }}">{{ $status }}
+                                                        value="{{ $status }}">@lang($status)
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -59,6 +59,7 @@
                                         <label class="col-sm-2 col-form-label" for="parent_id">زیر دسته (اجباری نیست)</label>
                                         <div class="col-sm-10">
                                             <select class="form-control @error('parent_id') is-invalid @enderror" name="parent_id">
+                                                <option value="" selected>زیر دسته دسته بندی را وارد کنید</option>
                                                 @foreach ($categories as $cat)
                                                     <option @if ($category->parent_id === $cat->id) selected @endif
                                                         value="{{ $cat->id }}">{{ $cat->title }}
