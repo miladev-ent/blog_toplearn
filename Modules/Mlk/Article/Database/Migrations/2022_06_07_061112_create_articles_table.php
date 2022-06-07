@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('imageName');
             $table->string('imagePath');
             $table->string('score')->default(0);
+            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
             $table->enum('status', Mlk\Article\Models\Article::$statuses);
             $table->enum('type', Mlk\Article\Models\Article::$types)
             ->default(Mlk\Article\Models\Article::TYPE_NORMAL);

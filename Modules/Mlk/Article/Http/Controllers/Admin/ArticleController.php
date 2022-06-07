@@ -28,7 +28,7 @@ class ArticleController extends Controller
         $this->authorize('manage', $this->class);
         $articles = $this->repo->index()->paginate(10);
 
-        return view('Articel::Admin.index', compact('articles'));
+        return view('Article::Admin.index', compact('articles'));
     }
 
     public function create(CategoryRepo $categoryRepo)
@@ -36,7 +36,7 @@ class ArticleController extends Controller
         $this->authorize('manage', $this->class);
         $categories = $categoryRepo->getActiveCategories()->get();
 
-        return view('Articel::Admin.create', compact('categories'));
+        return view('Article::Admin.create', compact('categories'));
     }
 
     public function store(ArticleRequest $request)
@@ -57,7 +57,7 @@ class ArticleController extends Controller
         $article = $this->repo->findById($id);
         $categories = $categoryRepo->getActiveCategories()->get();
 
-        return view('Articel::Admin.edit', compact(['article', 'categories']));
+        return view('Article::Admin.edit', compact(['article', 'categories']));
     }
 
     public function update(ArticleRequest $request, $id)

@@ -20,7 +20,7 @@ class ArticleRequest extends FormRequest
             'title' => 'required|string|min:3|max:190|unique:articles,title',
             'time_to_read' => 'required|numeric',
             'image' => 'required|mimes:jpg,jpeg,png|max:2048',
-            'score' => 'required|numeric|in:1,2,3,4,5,6,7,8,9,10',
+            'score' => 'required|numeric|in:0,1,2,3,4,5,6,7,8,9,10',
             'status' => ['required', Rule::in(Article::$statuses)],
             'type' => ['required', Rule::in(Article::$types)],
             'body' => 'required|string|min:3',
@@ -32,5 +32,12 @@ class ArticleRequest extends FormRequest
         }
 
         return $rules;
+    }
+
+    public function attributes()
+    {
+        return [
+            'score' => 'امتیاز'
+        ];
     }
 }

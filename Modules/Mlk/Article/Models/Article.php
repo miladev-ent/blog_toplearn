@@ -16,7 +16,7 @@ class Article extends Model implements Viewable
 
     protected $fillable = [
         'user_id', 'category_id', 'title', 'slug', 'time_to_read', 'imageName', 'imagePath', 'score', 'status',
-        'type', 'body',
+        'type', 'body', 'keywords', 'description',
     ];
 
     public const STATUS_ACTIVE = 'active';
@@ -39,5 +39,13 @@ class Article extends Model implements Viewable
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    // Methods
+    public function cssStatus()
+    {
+        if ($this->status === self::STATUS_ACTIVE) return 'success';
+        else if ($this->status === self::STATUS_INACTIVE) return 'danger';
+        else return 'warning';
     }
 }

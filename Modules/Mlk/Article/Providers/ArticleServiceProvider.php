@@ -14,6 +14,7 @@ class ArticleServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views/', 'Article');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../Resources/Lang/');
 
         Route::middleware('web')->namespace('Mlk\Article\Http\Controllers')
         ->group(__DIR__ . '/../Routes/article_routes.php');

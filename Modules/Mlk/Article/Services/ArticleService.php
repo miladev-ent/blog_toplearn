@@ -21,6 +21,8 @@ class ArticleService
             'status' => $request->status,
             'type' => $request->type,
             'body' => $request->body,
+            'keywords' => $request->keywords,
+            'description' => $request->description,
         ]);
     }
 
@@ -37,16 +39,17 @@ class ArticleService
             'status' => $request->status,
             'type' => $request->type,
             'body' => $request->body,
+            'keywords' => $request->keywords,
+            'description' => $request->description,
         ]);
     }
 
     public function uploadImage($file)
     {
-        $name = time() . '.' . $file->getClientOriginalExtention();
-        dd($name);
+        $name = time() . '.' . $file->getClientOriginalExtension();
         Storage::disk('public')->putFileAs('images', $file, $name);
 
-        $path = asset('storage/' . $name);
+        $path = asset('storage/images/' . $name);
 
         return [$name, $path];
     }
