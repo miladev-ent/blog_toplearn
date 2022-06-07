@@ -4,6 +4,7 @@ namespace Mlk\Category\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mlk\Article\Models\Article;
 use Mlk\User\Models\User;
 
 class Category extends Model
@@ -31,6 +32,11 @@ class Category extends Model
     public function subCategories()
     {
         return $this->hasMany(__CLASS__, 'parent_id');
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 
     // Methods
