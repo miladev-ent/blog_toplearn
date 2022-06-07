@@ -191,6 +191,7 @@ return [
         Mlk\Panel\Providers\PanelServiceProvider::class,
         Mlk\Category\Providers\CategoryServiceProvider::class,
         Mlk\Role\Providers\RoleServiceProvider::class,
+        Mlk\Article\Providers\ArticleServiceProvider::class,
         /*
          * Package Service Providers...
          */

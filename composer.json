@@ -32,7 +32,8 @@
             "Mlk\\Auth\\": "Modules/Mlk/Auth/",
             "Mlk\\Panel\\": "Modules/Mlk/Panel/",
             "Mlk\\Category\\": "Modules/Mlk/Category/",
-            "Mlk\\Role\\": "Modules/Mlk/Role/"
+            "Mlk\\Role\\": "Modules/Mlk/Role/",
+            "Mlk\\Article\\": "Modules/Mlk/Article/"
         }
     },
     "autoload-dev": {
