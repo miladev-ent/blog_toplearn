@@ -4,6 +4,7 @@ namespace Mlk\Article\Services;
 
 use Illuminate\Support\Facades\Storage;
 use Mlk\Article\Models\Article;
+use File;
 
 class ArticleService
 {
@@ -54,14 +55,30 @@ class ArticleService
         return [$name, $path];
     }
 
+    public function deleteImage($article)
+    {
+//        if (File::exists(public_path('storage/images/' . $article->imageName))) {
+//            return File::delete(public_path('storage/images/' . $article->imageName));
+//        }
+        if (Storage::disk('public')->exists('images/' . $article->imageName)) {
+            return Storage::disk('public')->delete('images/' . $article->imageName);
+        }
+
+        return null;
+    }
+
+    public function changeStatus($article)
+    {
+        if ($article->status === Article::STATUS_ACTIVE) {
+            return $article->update(['status' => Article::STATUS_INACTIVE]);
+        }
+
+        return $article->update(['status' => Article::STATUS_ACTIVE]);
+    }
+
     private function makeSlug($title)
     {
         $url = str_replace('_', '', $title);
         return preg_replace('/\s+/', '-', $url);
-    }
-
-    public function deleteImage($article)
-    {
-        //
     }
 }

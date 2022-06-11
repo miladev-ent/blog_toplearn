@@ -55,13 +55,13 @@
                                                 <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
-{{--                                                <form action="{{ route('articles.change.status', $article->id) }}" method="POST">--}}
-{{--                                                    @csrf--}}
-{{--                                                    @method('PATCH')--}}
-{{--                                                    <button type="submit" class="btn btn-dark ml-1">--}}
-{{--                                                        <i class="fas fa-spinner"></i>--}}
-{{--                                                    </button>--}}
-{{--                                                </form>--}}
+                                                <form action="{{ route('articles.change.status', $article->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button type="submit" class="btn btn-dark ml-1">
+                                                        <i class="fas fa-spinner"></i>
+                                                    </button>
+                                                </form>
                                                 <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

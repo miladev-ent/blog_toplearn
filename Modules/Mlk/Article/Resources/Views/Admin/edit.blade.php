@@ -146,7 +146,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label" for="image">عنوان</label>
+                                        <label class="col-sm-2 col-form-label" for="image">عکس</label>
                                         <div class="col-sm-10">
                                             <input type="file" class="form-control @error('image') is-invalid @enderror"
                                            id="image" name="image">

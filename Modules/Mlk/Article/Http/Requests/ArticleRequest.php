@@ -37,7 +37,8 @@ class ArticleRequest extends FormRequest
     public function attributes()
     {
         return [
-            'score' => 'امتیاز'
+            'score' => 'امتیاز',
+            'time_to_read' => 'زمان برای خوانده شدن',
         ];
     }
 }

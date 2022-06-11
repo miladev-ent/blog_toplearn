@@ -87,6 +87,16 @@ class ArticleController extends Controller
         return to_route('articles.index');
     }
 
+    public function changeStatus($id)
+    {
+        $article = $this->repo->findById($id);
+        $this->service->changeStatus($article);
+
+        alert()->success('تغییر وضعیت مقاله', 'عملیات با موفقیت انجام شد');
+        return to_route('articles.index');
+    }
+
+    // Private Method
     private function uploadImage($file, $article): array
     {
         if (!is_null($file)) {
