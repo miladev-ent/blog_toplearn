@@ -9,7 +9,7 @@
     </head>
     <body>
         <!-- Preloader Start -->
-        @include('Home::section.preloader')
+{{--        @include('Home::section.preloader')--}}
         <div class="main-wrap">
             <!--Offcanvas sidebar-->
             @include('Home::section.sidebar')
