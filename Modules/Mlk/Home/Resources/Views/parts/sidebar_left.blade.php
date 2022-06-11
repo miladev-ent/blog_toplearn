@@ -1,5 +1,4 @@
 <div class="col-lg-4 col-md-12 sidebar-right">
-    <!--Post aside style 1-->
     <div class="sidebar-widget mb-30">
         <div class="widget-header position-relative mb-30">
             <div class="row">
@@ -15,81 +14,36 @@
         </div>
         <div class="post-aside-style-1 border-radius-10 p-20 bg-white">
             <ul class="list-post">
-                <li class="mb-20">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-4.jpg" alt="">
-                            </a>
+                @foreach ($homeRepo->getVipArticlesOrderByView() as $article)
+                    <li class="mb-20">
+                        <div class="d-flex">
+                            <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
+                                <a class="color-white" href="single.html">
+                                    <img src="{{ $article->imagePath }}" alt="{{ $article->title }}">
+                                </a>
+                            </div>
+                            <div class="post-content media-body">
+                                <h6 class="post-title mb-10 text-limit-2-row">
+                                    <a href="single.html">{{ $article->title }}</a>
+                                </h6>
+                            </div>
                         </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a></h6>
-                        </div>
-                    </div>
-                </li>
-                <li class="mb-20">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-15.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سه درصد گذشته، حال و آینده شناخت فراوان</a></h6>
-                        </div>
-                    </div>
-                </li>
-                <li class="mb-20">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-16.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی</a></h6>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-15.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سه درصد گذشته، حال و آینده شناخت فراوان</a></h6>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>
-    <!--Top authors-->
     <div class="sidebar-widget mb-30">
         <div class="widget-top-auhor border-radius-10 p-20 bg-white">
             <div class="widget-header widget-header-style-1 position-relative mb-15">
                 <h5 class="widget-title pl-5">نویسندگان <span>برتر</span></h5>
             </div>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="الناز - 1034 پست"><img src="assets/imgs/authors/author-2.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مسعود - 245 پست"><img src="assets/imgs/authors/author-3.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مریم - 356 پست"><img src="assets/imgs/authors/author-4.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مجید - 152 پست"><img src="assets/imgs/authors/author-5.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="بهمن - 245 پست"><img src="assets/imgs/authors/author-17.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="حامد - 758 پست"><img src="assets/imgs/authors/author-7.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="نادیا - 231 پست"><img src="assets/imgs/authors/author-8.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="فردین - 256 پست"><img src="assets/imgs/authors/author-9.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="ستاره - 652 پست"><img src="assets/imgs/authors/author-10.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="حمید - 125 پست"><img src="assets/imgs/authors/author-11.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مهتاب - 452 پست"><img src="assets/imgs/authors/author-12.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="ناصر - 124 پست"><img src="assets/imgs/authors/author-13.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مرجان - 1245 پست"><img src="assets/imgs/authors/author-14.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مرتضی - 1325 پست"><img src="assets/imgs/authors/author-15.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="نیلوفر - 562 پست"><img src="assets/imgs/authors/author-16.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="رضا - 256 پست"><img src="assets/imgs/authors/author-17.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="یکتا - 652 پست"><img src="assets/imgs/authors/author-18.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="فرانک - 125 پست"><img src="assets/imgs/authors/author-20.png" alt=""></a>
+            @foreach ($homeRepo->getAuthorUsers() as $user)
+                <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
+                   data-original-title="{{ $user->name }} - {{ $user->articles->count() }} مقاله">
+                    <img src="assets/imgs/authors/author-2.png" alt="{{ $user->name }}">
+                </a>
+            @endforeach
         </div>
     </div>
     <!--Newsletter-->

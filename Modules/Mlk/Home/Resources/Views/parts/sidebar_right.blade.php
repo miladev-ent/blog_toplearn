@@ -32,75 +32,16 @@
             </div>
         </div>
     </div>
-    <!-- Widget Categories -->
-    <div class="sidebar-widget widget_categories_2 border-radius-10 bg-white mb-30">
-        <ul class="font-small text-muted">
-            <li class="cat-item cat-item-2 active">
-                <a href="#">
-                                                <span class="ml-10">
-                                                    <ion-icon name="earth-outline"></ion-icon>
-                                                </span>بین المللی
-                </a>
-            </li>
-            <li class="cat-item cat-item-3">
-                <a href="#">
-                                                <span class="ml-10">
-                                                    <ion-icon name="trending-up-outline"></ion-icon>
-                                                </span>کسب و کار
-                </a>
-            </li>
-            <li class="cat-item cat-item-4">
-                <a href="#">
-                                                <span class="ml-10">
-                                                    <ion-icon name="glasses-outline"></ion-icon>
-                                                </span>سرگرمی
-                </a>
-            </li>
-            <li class="cat-item cat-item-5">
-                <a href="#">
-                                                <span class="ml-10">
-                                                    <ion-icon name="bicycle-outline"></ion-icon>
-                                                </span>اخبار ورزشی
-                </a>
-            </li>
-            <li class="cat-item cat-item-6">
-                <a href="#">
-                                                <span class="ml-10">
-                                                    <ion-icon name="fitness-outline"></ion-icon>
-                                                </span>سلامتی
-                </a>
-            </li>
-            <li class="cat-item cat-item-2">
-                <a href="#">
-                                                <span class="ml-10">
-                                                    <ion-icon name="book-outline"></ion-icon>
-                                                </span>مجله
-                </a>
-            </li>
-        </ul>
-    </div>
-    <!-- Widget Categories -->
     <div class="sidebar-widget widget_categories border-radius-10 bg-white mb-30">
         <div class="widget-header position-relative mb-15">
             <h5 class="widget-title"><strong>دسته بندی ها</strong></h5>
         </div>
         <ul class="font-small text-muted">
-            <li class="cat-item cat-item-2"><a href="#">اقتصاد جهانی</a></li>
-            <li class="cat-item cat-item-3"><a href="#">محیط زیست</a></li>
-            <li class="cat-item cat-item-4"><a href="#">اجرایی</a></li>
-            <li class="cat-item cat-item-5"><a href="#">مد</a></li>
-            <li class="cat-item cat-item-6"><a href="#">نوریست</a></li>
-            <li class="cat-item cat-item-7"><a href="#">درگیری</a></li>
-            <li class="cat-item cat-item-2"><a href="#">رسوایی</a></li>
-            <li class="cat-item cat-item-2"><a href="#">اجرایی</a></li>
-            <li class="cat-item cat-item-2"><a href="#">سیاست خارجی</a></li>
-            <li class="cat-item cat-item-2"><a href="#">زندگی سالم</a></li>
-            <li class="cat-item cat-item-3"><a href="#">تحقیقات پزشکی</a></li>
-            <li class="cat-item cat-item-4"><a href="#">سلامت کودکان</a></li>
-            <li class="cat-item cat-item-5"><a href="#">سراسر جهان</a></li>
-            <li class="cat-item cat-item-6"><a href="#">تبلیغات</a></li>
-            <li class="cat-item cat-item-7"><a href="#">سلامت روان</a></li>
-            <li class="cat-item cat-item-2"><a href="#">رسانه ای</a></li>
+            @foreach ($homeRepo->getActiveCategories() as $category)
+                <li class="cat-item cat-item-2">
+                    <a href="#">{{ $category->title }}</a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>

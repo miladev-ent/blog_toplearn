@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Mlk\User\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +16,6 @@ class DatabaseSeeder extends Seeder
             $this->call($seeder);
         }
 
-        // \App\Models\User::factory(10)->create();
+         User::factory(10)->create();
     }
 }
