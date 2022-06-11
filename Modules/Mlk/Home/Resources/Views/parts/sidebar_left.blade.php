@@ -72,94 +72,27 @@
         </div>
         <div class="post-aside-style-2">
             <ul class="list-post">
-                <li class="mb-30 wow fadeIn animated">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-2.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a></h6>
-                            <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
-                                <span class="post-by">توسط <a href="author.html">رضا کیمیا</a></span>
-                                <span class="post-on">4 دقیقه پیش</span>
+                @foreach ($homeRepo->getArticlesOrderByView() as $article)
+                    <li class="mb-30 wow fadeIn animated">
+                        <div class="d-flex">
+                            <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
+                                <a class="color-white" href="single.html">
+                                    <img src="{{ $article->imagePath }}" alt="{{ $article->title }}">
+                                </a>
+                            </div>
+                            <div class="post-content media-body">
+                                <h6 class="post-title mb-10 text-limit-2-row">
+                                    <a href="single.html">{{ $article->title }}</a>
+                                </h6>
+                                <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
+                                    <span class="post-by">توسط <a href="author.html">{{ $article->user->name }}</a></span>
+                                    <span class="post-on">4{{ $article->created_at->diffForHumans() }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li class="mb-30 wow fadeIn animated">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</a></h6>
-                            <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
-                                <span class="post-by">توسط <a href="author.html">سعید شمس</a></span>
-                                <span class="post-on">3 ساعت پیش</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="mb-30 wow fadeIn animated">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-5.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سه درصد گذشته، حال و آینده شناخت فراوان</a></h6>
-                            <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
-                                <span class="post-by">توسط <a href="author.html">الناز روستایی</a></span>
-                                <span class="post-on">4 ساعت پیش</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                @endforeach
             </ul>
-        </div>
-    </div>
-    <div class="sidebar-widget mb-30">
-        <div class="widget-header mb-30">
-            <h5 class="widget-title">محبوب ترین</h5>
-        </div>
-        <div class="post-aside-style-3">
-            <article class="bg-white border-radius-15 mb-30 p-10 wow fadeIn animated">
-                <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
-                    <a href="single.html">
-                        <video autoplay="" class="photo-item__video" loop="" muted="" preload="none">
-                            <source src="#" type="video/mp4">
-                        </video>
-                    </a>
-                </div>
-                <div class="pl-10 pr-10">
-                    <h5 class="post-title mb-15"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a></h5>
-                    <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                        <span class="post-in">در <a href="category.html">جهان</a></span>
-                        <span class="post-by">توسط <a href="author.html">الناز روستایی</a></span>
-                        <span class="post-on">4 دقیقه پیش</span>
-                    </div>
-                </div>
-            </article>
-            <article class="bg-white border-radius-15 mb-30 p-10 wow fadeIn animated">
-                <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
-                    <a href="single.html">
-                        <img class="border-radius-15" src="assets/imgs/news-22.jpg" alt="">
-                    </a>
-                </div>
-                <div class="pl-10 pr-10">
-                    <h5 class="post-title mb-15"><a href="single.html">لورم ایپسوم متن ساختگی با تولید</a></h5>
-                    <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                        <span class="post-in">در <a href="category.html">سلامت</a></span>
-                        <span class="post-by">توسط <a href="author.html">رضا کیمیا</a></span>
-                        <span class="post-on">14 دقیقه پیش</span>
-                    </div>
-                </div>
-            </article>
         </div>
     </div>
     <div class="sidebar-widget p-20 border-radius-15 bg-white widget-latest-comments wow fadeIn animated">
@@ -168,9 +101,9 @@
         </div>
         <div class="post-block-list post-module-6">
             <div class="last-comment mb-20 d-flex wow fadeIn animated">
-                                                    <span class="item-count vertical-align">
-                                                        <a class="red-tooltip author-avatar" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مرجان - 985 پست"><img src="assets/imgs/authors/author-14.png" alt=""></a>
-                                                    </span>
+                <span class="item-count vertical-align">
+                    <a class="red-tooltip author-avatar" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مرجان - 985 پست"><img src="assets/imgs/authors/author-14.png" alt=""></a>
+                </span>
                 <div class="alith_post_title_small">
                     <p class="font-medium mb-10"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان.</a></p>
                     <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
