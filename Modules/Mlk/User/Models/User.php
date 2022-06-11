@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Mlk\Article\Models\Article;
 use Mlk\Category\Models\Category;
+use Mlk\Comment\Models\Comment;
 use Overtrue\LaravelLike\Traits\Liker;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -46,5 +47,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
