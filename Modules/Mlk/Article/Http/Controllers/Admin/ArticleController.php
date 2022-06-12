@@ -3,7 +3,6 @@
 namespace Mlk\Article\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Mlk\Article\Http\Requests\ArticleRequest;
 use Mlk\Article\Models\Article;
 use Mlk\Article\Repositories\ArticleRepo;

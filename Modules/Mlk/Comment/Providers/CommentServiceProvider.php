@@ -11,7 +11,9 @@ class CommentServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views/', 'Comment');
-        Route::middleware('web')->namespace('Mlk\Comment\Http\Controller')->group(__DIR__ . '/../Routes/comment_routes.php');
+
+        Route::middleware('web')->namespace('Mlk\Comment\Http\Controllers')
+        ->group(__DIR__ . '/../Routes/comment_routes.php');
     }
 
     public function boot()

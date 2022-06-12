@@ -2,9 +2,9 @@
 
 namespace Mlk\Article\Services;
 
+use File;
 use Illuminate\Support\Facades\Storage;
 use Mlk\Article\Models\Article;
-use File;
 
 class ArticleService
 {
