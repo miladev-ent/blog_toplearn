@@ -181,7 +181,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         /*
          * Module Service Providers...
          */
@@ -193,6 +192,7 @@ return [
         Mlk\Role\Providers\RoleServiceProvider::class,
         Mlk\Article\Providers\ArticleServiceProvider::class,
         Mlk\Comment\Providers\CommentServiceProvider::class,
+        Mlk\Share\Providers\ShareServiceProvider::class,
         /*
          * Package Service Providers...
          */

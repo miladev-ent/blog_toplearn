@@ -36,7 +36,8 @@
             "Mlk\\Category\\": "Modules/Mlk/Category/",
             "Mlk\\Role\\": "Modules/Mlk/Role/",
             "Mlk\\Article\\": "Modules/Mlk/Article/",
-            "Mlk\\Comment\\": "Modules/Mlk/Comment/"
+            "Mlk\\Comment\\": "Modules/Mlk/Comment/",
+            "Mlk\\Share\\": "Modules/Mlk/Share/"
         }
     },
     "autoload-dev": {
