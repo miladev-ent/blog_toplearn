@@ -6,3 +6,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     $router->patch('articles/{id}/status', 'ArticleController@changeStatus')->name('articles.change.status');
     $router->resource('articles', 'ArticleController', ['except' => 'show']);
 });
+
+Route::group(['namespace' => 'Home'], static function ($router) {
+    $router->get('articles/{slug}', 'ArticleController@details')->name('articles.details');
+});

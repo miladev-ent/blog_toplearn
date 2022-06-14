@@ -21,6 +21,11 @@ class ArticleRepo
         return $this->query()->where('id', $id)->delete();
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->query()->whereSlug($slug)->first();
+    }
+
     private function query()
     {
         return Article::query();
