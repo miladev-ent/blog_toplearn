@@ -33,6 +33,7 @@ class CategoryRepo
     {
         return $this->query()->where('status', Category::STATUS_ACTIVE)->latest();
     }
+
     private function query(): \Illuminate\Database\Eloquent\Builder
     {
         return Category::query();
