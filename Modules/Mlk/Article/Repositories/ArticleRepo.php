@@ -26,6 +26,15 @@ class ArticleRepo
         return $this->query()->whereSlug($slug)->first();
     }
 
+    // Home Query
+    public function relatedArticles($categoryId, $id)
+    {
+        return $this->query()
+            ->where('category_id', $categoryId)
+            ->whereStatus(Article::STATUS_ACTIVE)
+            ->where('id', '!=', $id);
+    }
+
     private function query()
     {
         return Article::query();

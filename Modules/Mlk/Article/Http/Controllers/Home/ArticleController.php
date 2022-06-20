@@ -8,6 +8,7 @@ use Mlk\Article\Models\Article;
 use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Article\Services\ArticleService;
 use Mlk\Category\Repositories\CategoryRepo;
+use Mlk\Home\Repositories\HomeRepo;
 use Mlk\Share\Repositories\ShareRepo;
 
 class ArticleController extends Controller
@@ -26,12 +27,13 @@ class ArticleController extends Controller
 //        return view('Article::Admin.index', compact('articles'));
 //    }
 
-    public function details($slug)
+    public function details($slug, HomeRepo $homeRepo)
     {
         $article = $this->repo->findBySlug($slug);
 
         if (is_null($article)) abort(404);
+        $relatedArticles = $this->repo->relatedArticles($article->category_id, $article->id)->limit(3)->get();
 
-        return view('Article::Home.details', compact('article'));
+        return view('Article::Home.details', compact(['article', 'relatedArticles', 'homeRepo']));
     }
 }
