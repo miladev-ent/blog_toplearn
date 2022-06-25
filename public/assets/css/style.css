@@ -2225,3 +2225,8 @@ pre {
     transform-origin: 0;
     animation: jump 0.5s linear alternate infinite;
 }
+
+.style-article-img {
+    height: 300px !important;
+    width: 420px !important;
+}

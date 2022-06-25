@@ -38,6 +38,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'danger';
     }
 
+    public function path()
+    {
+        // TODO
+    }
+
+    public function image()
+    {
+        return asset('assets/imgs/authors/author-14.png');
+    }
+
     // Relations
     public function categories()
     {

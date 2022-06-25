@@ -28,6 +28,11 @@ class CommentRepo
         return $this->findById($id)->update(['status' => $status]);
     }
 
+    public function getLatestComments()
+    {
+        return $this->query()->where('status', Comment::STATUS_ACTIVE)->latest();
+    }
+
     private function query()
     {
         return Comment::query();

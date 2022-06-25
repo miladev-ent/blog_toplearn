@@ -46,4 +46,9 @@ class Category extends Model
 
         return $this->parentCategory->title;
     }
+
+    public function path()
+    {
+        return route('categories.details', $this->slug);
+    }
 }

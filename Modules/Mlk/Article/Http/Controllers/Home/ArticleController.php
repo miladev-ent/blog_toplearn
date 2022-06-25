@@ -8,6 +8,7 @@ use Mlk\Article\Models\Article;
 use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Article\Services\ArticleService;
 use Mlk\Category\Repositories\CategoryRepo;
+use Mlk\Comment\Repositories\CommentRepo;
 use Mlk\Home\Repositories\HomeRepo;
 use Mlk\Share\Repositories\ShareRepo;
 
@@ -20,12 +21,14 @@ class ArticleController extends Controller
         $this->repo = $articleRepo;
     }
 
-//    public function index()
-//    {
-//        $articles = $this->repo->index()->paginate(10);
-//
-//        return view('Article::Admin.index', compact('articles'));
-//    }
+    public function home(CommentRepo $commentRepo)
+    {
+        $articles = $this->repo->home()->paginate(6);
+        $viewsArticles = $this->repo->getArticlesByViews()->latest()->limit(5)->get();
+        $latestComments = $commentRepo->getLatestComments()->limit(3)->get();
+
+        return view('Article::Home.home', compact(['articles', 'viewsArticles', 'latestComments']));
+    }
 
     public function details($slug, HomeRepo $homeRepo)
     {
