@@ -3,14 +3,9 @@
 namespace Mlk\Article\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use Mlk\Article\Http\Requests\ArticleRequest;
-use Mlk\Article\Models\Article;
 use Mlk\Article\Repositories\ArticleRepo;
-use Mlk\Article\Services\ArticleService;
-use Mlk\Category\Repositories\CategoryRepo;
 use Mlk\Comment\Repositories\CommentRepo;
 use Mlk\Home\Repositories\HomeRepo;
-use Mlk\Share\Repositories\ShareRepo;
 
 class ArticleController extends Controller
 {

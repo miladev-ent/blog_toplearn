@@ -8,3 +8,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     $router->get('comments', ['uses' => 'CommentController@index', 'as' => 'comments.index']);
     $router->delete('comments/{id}', ['uses' => 'CommentController@destroy', 'as' => 'comments.destroy']);
 });
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Home'], static function ($router) {
+    $router->post('comments', ['uses' => 'CommentController@store', 'as' => 'comments.store']);
+});

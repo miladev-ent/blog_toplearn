@@ -29,7 +29,7 @@
                             <li class="cat-item cat-item-4"><a href="#">نویسنده ها</a></li>
                             @auth
                                 <li class="cat-item cat-item-5"><a href="#">{{ auth()->user()->name }}</a></li>
-                                <li class="cat-item cat-item-6"><a href="{{ route('logout') }}">خروج</a></li>
+                                <li class="cat-item cat-item-6"><a href="{{ route('auth.logout') }}">خروج</a></li>
                             @endauth
                             @guest
                                 <li class="cat-item cat-item-7"><a href="{{ route('auth.register') }}">ثبت نام</a></li>

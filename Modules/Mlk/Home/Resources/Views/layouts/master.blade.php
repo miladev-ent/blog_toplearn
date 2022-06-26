@@ -25,5 +25,6 @@
         </div>
         <div class="dark-mark"></div>
         @include('Home::section.js')
+        @include('sweetalert::alert') {{-- Load Sweet Alert --}}
     </body>
 </html>
