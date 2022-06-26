@@ -7,12 +7,13 @@ use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Mlk\Category\Models\Category;
+use Mlk\Comment\Trait\HaveComments;
 use Mlk\User\Models\User;
 use Overtrue\LaravelLike\Traits\Likeable;
 
 class Article extends Model implements Viewable
 {
-    use HasFactory, InteractsWithViews, Likeable;
+    use HasFactory, InteractsWithViews, Likeable, HaveComments;
 
     protected $fillable = [
         'user_id', 'category_id', 'title', 'slug', 'time_to_read', 'imageName', 'imagePath', 'score', 'status',
@@ -53,4 +54,11 @@ class Article extends Model implements Viewable
     {
         return route('articles.details', $this->slug);
     }
+
+//    public function getCommentCount()
+//    {
+//        if (is_null($this->commets)) return 0;
+//
+//        return $this->comments->count();
+//    }
 }

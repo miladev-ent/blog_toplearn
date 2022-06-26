@@ -108,7 +108,7 @@
                     <!--related posts-->
                     @include('Article::Home.details.related-posts')
                     <!--Comments-->
-                    @include('Article::Home.details.comments')
+                    @include('Article::Home.details.comments', ['article' => $article])
                     <!--comment form-->
                     @include('Article::Home.details.create-comments')
                 </div>

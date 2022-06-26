@@ -2230,3 +2230,8 @@ pre {
     height: 300px !important;
     width: 420px !important;
 }
+
+.style-article-img-small {
+    height: 185px !important;
+    width: 260px !important;
+}

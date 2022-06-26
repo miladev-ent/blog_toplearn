@@ -6,7 +6,7 @@
                 <div class="background-white border-radius-10 p-10 mb-30">
                     <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
                         <a href="{{ $article->path() }}">
-                            <img class="border-radius-15" src="{{ $article->imagePath }}" alt="article image">
+                            <img class="border-radius-15 style-article-img-small" src="{{ $article->imagePath }}" alt="article image">
                         </a>
                     </div>
                     <div class="pl-10 pr-10">
