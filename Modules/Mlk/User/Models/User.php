@@ -45,7 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function image()
     {
-        return asset('assets/imgs/authors/author-14.png');
+        return asset('assets/imgs/logo2.svg');
     }
 
     // Relations

@@ -25,13 +25,14 @@ class ArticleController extends Controller
         return view('Article::Home.home', compact(['articles', 'viewsArticles', 'latestComments']));
     }
 
-    public function details($slug, HomeRepo $homeRepo)
+    public function details($slug, HomeRepo $homeRepo, CommentRepo $commentRepo)
     {
         $article = $this->repo->findBySlug($slug);
 
         if (is_null($article)) abort(404);
         $relatedArticles = $this->repo->relatedArticles($article->category_id, $article->id)->limit(3)->get();
+        $latestComments = $commentRepo->getLatestComments()->limit(3)->get();
 
-        return view('Article::Home.details', compact(['article', 'relatedArticles', 'homeRepo']));
+        return view('Article::Home.details', compact(['article', 'relatedArticles', 'homeRepo', 'latestComments']));
     }
 }

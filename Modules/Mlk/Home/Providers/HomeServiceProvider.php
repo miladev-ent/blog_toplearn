@@ -5,6 +5,7 @@ namespace Mlk\Home\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Mlk\Category\Repositories\CategoryRepo;
+use Mlk\Comment\Repositories\CommentRepo;
 
 class HomeServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,12 @@ class HomeServiceProvider extends ServiceProvider
             $categories = $categoryRepo->getActiveCategories()->get();
 
             $view->with(['categories' => $categories]);
+        });
+        view()->composer(['Home::parts.sidebar_left'], static function ($view) {
+            $commentRepo = new CommentRepo;
+            $latestComments = $commentRepo->getLatestComments()->limit(4)->get();
+
+            $view->with(['latestComments' => $latestComments]);
         });
 
         config()->set('panelConfig.menus.home', [
