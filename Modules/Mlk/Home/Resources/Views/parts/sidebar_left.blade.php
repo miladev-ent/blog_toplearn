@@ -39,9 +39,9 @@
                 <h5 class="widget-title pl-5">نویسندگان <span>برتر</span></h5>
             </div>
             @foreach ($homeRepo->getAuthorUsers() as $user)
-                <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
+                <a class="red-tooltip active" href="{{ $user->path() }}" data-toggle="tooltip" data-placement="top"
                    data-original-title="{{ $user->name }} - {{ $user->articles->count() }} مقاله">
-                    <img src="assets/imgs/authors/author-2.png" alt="{{ $user->name }}">
+                    <img src="{{ $user->image() }}" alt="{{ $user->name }}">
                 </a>
             @endforeach
         </div>

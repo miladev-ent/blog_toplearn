@@ -45,6 +45,11 @@ class ArticleRepo
         return $this->query()->whereStatus(Article::STATUS_ACTIVE)->orderByViews();
     }
 
+    public function getArticlesByUserId($user_id)
+    {
+        return $this->query()->whereStatus(Article::STATUS_ACTIVE)->where('user_id', $user_id);
+    }
+
     private function query()
     {
         return Article::query();

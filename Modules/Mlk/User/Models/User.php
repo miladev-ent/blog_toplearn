@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function path()
     {
-        // TODO
+        return route('users.author', $this->name);
     }
 
     public function image()
