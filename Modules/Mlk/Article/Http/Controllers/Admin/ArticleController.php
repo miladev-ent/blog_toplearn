@@ -9,6 +9,7 @@ use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Article\Services\ArticleService;
 use Mlk\Category\Repositories\CategoryRepo;
 use Mlk\Share\Repositories\ShareRepo;
+use Mlk\Share\Services\ShareService;
 
 class ArticleController extends Controller
 {
@@ -43,7 +44,7 @@ class ArticleController extends Controller
     {
         $this->authorize('manage', $this->class);
 
-        [$imageName, $imagePath] = $this->service->uploadImage($request->file('image'));
+        [$imageName, $imagePath] = ShareService::uploadImage($request->file('image'), 'articles');
 
         $this->service->store($request, auth()->id(), $imageName, $imagePath);
 

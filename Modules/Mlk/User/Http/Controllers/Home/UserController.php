@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Role\Models\Permission;
 use Mlk\Share\Repositories\ShareRepo;
+use Mlk\Share\Services\ShareService;
 use Mlk\User\Http\Requests\UpdateProfileRequest;
 use Mlk\User\Repositories\Home\UserRepo;
 use Mlk\User\Services\UserService;
@@ -42,7 +43,14 @@ class UserController extends Controller
 
     public function updateProfile(UpdateProfileRequest $request, UserService $userService)
     {
-        $userService->updateProfile($request, auth()->id());
+        if ($request->image) {
+            [$imageName, $imagePath] = ShareService::uploadImage($request->file('image'), 'users');
+        } else {
+            $imageName = auth()->user()->imageName;
+            $imagePath = auth()->user()->imagePath;
+        }
+
+        $userService->updateProfile($request, auth()->id(), $imageName, $imagePath);
 
         ShareRepo::successMessage('بروزرسانی پروفایل کاربری');
         return back();
