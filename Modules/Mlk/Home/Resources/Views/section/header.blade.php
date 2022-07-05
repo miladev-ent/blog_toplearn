@@ -72,11 +72,11 @@
 {{--                                </li>--}}
                                 @auth
                                     <li>
-                                        <a href="">
+                                        <a href="{{ route('users.profile') }}">
                                             <span class="ml-15">
                                                 <ion-icon name="mail-unread-outline"></ion-icon>
                                             </span>
-                                            {{ auth()->user()->name }}
+                                            پروفایل
                                         </a>
                                     </li>
                                     <li>

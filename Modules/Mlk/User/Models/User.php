@@ -17,11 +17,19 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, Liker;
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [
+        'name', 'email', 'password', 'telegram', 'linkedin', 'twitter', 'instagram', 'bio', 'imageName', 'imagePath', 'status'
+    ];
 
     protected $hidden = ['password', 'remember_token'];
 
     protected $casts = ['email_verified_at' => 'datetime'];
+
+    // Variables
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_INACTIVE = 'inactive';
+
+    public static array $statuses = [self::STATUS_ACTIVE, self::STATUS_INACTIVE];
 
     // Methods
     public function textStatusEmailVerifiedAt(): string
