@@ -18,7 +18,7 @@ class HomeServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        view()->composer(['Home::section.footer', 'Home::section.header'], static function ($view) {
+        view()->composer(['Home::section.footer', 'Home::section.header', 'Category::Home.details'], static function ($view) {
             $categoryRepo = new CategoryRepo;
             $categories = $categoryRepo->getActiveCategories()->get();
 

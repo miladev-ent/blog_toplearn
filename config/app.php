@@ -193,6 +193,7 @@ return [
         Mlk\Article\Providers\ArticleServiceProvider::class,
         Mlk\Comment\Providers\CommentServiceProvider::class,
         Mlk\Share\Providers\ShareServiceProvider::class,
+        Mlk\Advertising\Providers\AdvertisingServiceProvider::class,
         /*
          * Package Service Providers...
          */

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Mlk\Advertising\Models\Advertising;
 use Mlk\Article\Models\Article;
 use Mlk\Category\Models\Category;
 use Mlk\Comment\Models\Comment;
@@ -70,5 +71,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function advertisings()
+    {
+        return $this->hasMany(Advertising::class);
     }
 }
