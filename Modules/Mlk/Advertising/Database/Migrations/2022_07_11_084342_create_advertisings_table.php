@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('imageName');
             $table->string('link')->nullable();
             $table->string('title');
+            $table->enum('location', Mlk\Advertising\Models\Advertising::$locations);
             $table->timestamps();
         });
     }

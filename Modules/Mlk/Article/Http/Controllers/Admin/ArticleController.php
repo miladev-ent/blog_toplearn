@@ -102,7 +102,7 @@ class ArticleController extends Controller
     private function uploadImage($file, $article): array
     {
         if (!is_null($file)) {
-            [$imageName, $imagePath] = $this->service->uploadImage($file);
+            [$imageName, $imagePath] = ShareService::uploadImage($file, 'articles');
         }
         else {
             $imageName = $article->imageName;

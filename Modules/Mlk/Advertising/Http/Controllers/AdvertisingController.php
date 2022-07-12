@@ -3,84 +3,83 @@
 namespace Mlk\Advertising\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Mlk\Advertising\Models\Advertising;
+use Mlk\Advertising\Http\Requests\AdvertisingRequest;
+use Mlk\Advertising\Repositories\AdvertisingRepo;
+use Mlk\Advertising\Services\AdvertisingService;
+use Mlk\Share\Repositories\ShareRepo;
+use Mlk\Share\Services\ShareService;
 
 class AdvertisingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public AdvertisingRepo $repo;
+    public AdvertisingService $service;
+
+    public function __construct(AdvertisingRepo $advertisingRepo, AdvertisingService $advertisingService)
+    {
+        $this->repo = $advertisingRepo;
+        $this->service = $advertisingService;
+    }
+
     public function index()
     {
-        //
+        $advertisings = $this->repo->index()->paginate(10);
+        return view('Advs::index', compact('advertisings'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('Advs::create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(AdvertisingRequest $request)
     {
-        //
+        [$imageName, $imagePath] = ShareService::uploadImage($request->file('image'), 'advertisings');
+        $this->service->store($request, $imageName, $imagePath);
+
+        ShareRepo::successMessage('ساخت تبیلغات');
+        return to_route('advertisings.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \Mlk\Advertising\Models\Advertising  $advertising
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Advertising $advertising)
+    public function edit($id)
     {
-        //
+        $advertising = $this->repo->findById($id);
+        return view('Advs::edit', compact('advertising'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \Mlk\Advertising\Models\Advertising  $advertising
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Advertising $advertising)
+    public function update(AdvertisingRequest $request, $id)
     {
-        //
+        $file = $request->file('image');
+        $advertising = $this->repo->findById($id);
+
+        [$imageName, $imagePath] = $this->uploadImage($file, $advertising);
+
+        $this->service->update($request, $id, $imageName, $imagePath);
+
+        ShareRepo::successMessage('ویرایش تبلیغات');
+        return to_route('advertisings.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Mlk\Advertising\Models\Advertising  $advertising
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Advertising $advertising)
+    public function destroy($id)
     {
-        //
+        $article = $this->repo->findById($id);
+        $this->service->deleteImage($article);
+        $this->repo->delete($id);
+
+        ShareRepo::successMessage('حذف تبلیغات');
+        return to_route('advertisings.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Mlk\Advertising\Models\Advertising  $advertising
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Advertising $advertising)
+    // Private Method
+    private function uploadImage($file, $article): array
     {
-        //
+        if (!is_null($file)) {
+            [$imageName, $imagePath] = ShareService::uploadImage($file, 'advertisings');
+        }
+        else {
+            $imageName = $article->imageName;
+            $imagePath = $article->imagePath;
+        }
+
+        return array($imageName, $imagePath);
     }
 }
