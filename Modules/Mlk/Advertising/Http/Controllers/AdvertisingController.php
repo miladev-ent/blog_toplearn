@@ -33,8 +33,8 @@ class AdvertisingController extends Controller
 
     public function store(AdvertisingRequest $request)
     {
-        [$imageName, $imagePath] = ShareService::uploadImage($request->file('image'), 'advertisings');
-        $this->service->store($request, $imageName, $imagePath);
+        [$imageName, $imagePath] = ShareService::uploadImage($request->file('image'), null);
+        $this->service->store($request, $imagePath, $imageName);
 
         ShareRepo::successMessage('ساخت تبیلغات');
         return to_route('advertisings.index');
@@ -53,7 +53,7 @@ class AdvertisingController extends Controller
 
         [$imageName, $imagePath] = $this->uploadImage($file, $advertising);
 
-        $this->service->update($request, $id, $imageName, $imagePath);
+        $this->service->update($request, $id, $imagePath, $imageName);
 
         ShareRepo::successMessage('ویرایش تبلیغات');
         return to_route('advertisings.index');
@@ -73,7 +73,7 @@ class AdvertisingController extends Controller
     private function uploadImage($file, $article): array
     {
         if (!is_null($file)) {
-            [$imageName, $imagePath] = ShareService::uploadImage($file, 'advertisings');
+            [$imageName, $imagePath] = ShareService::uploadImage($file, null);
         }
         else {
             $imageName = $article->imageName;
