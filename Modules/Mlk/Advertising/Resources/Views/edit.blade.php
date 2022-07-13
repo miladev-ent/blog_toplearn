@@ -37,7 +37,7 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div> policy
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="location">مکان تبلیغات</label>
                                         <div class="col-sm-10">

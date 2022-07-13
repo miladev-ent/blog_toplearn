@@ -2,8 +2,11 @@
 
 namespace Mlk\Advertising\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Mlk\Advertising\Models\Advertising;
+use Mlk\Advertising\Policies\AdvertisingPolicy;
 
 class AdvertisingServiceProvider extends ServiceProvider
 {
@@ -17,6 +20,7 @@ class AdvertisingServiceProvider extends ServiceProvider
 
         Route::middleware('web')->namespace($this->namespace)
         ->group(__DIR__ . '/../Routes/advertising_routes.php');
+        Gate::policy(Advertising::class, AdvertisingPolicy::class);
     }
 
     public function boot()
