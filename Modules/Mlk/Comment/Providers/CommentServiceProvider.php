@@ -2,8 +2,11 @@
 
 namespace Mlk\Comment\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Mlk\Comment\Models\Comment;
+use Mlk\Comment\Policies\CommentPolicy;
 
 class CommentServiceProvider extends ServiceProvider
 {
@@ -14,6 +17,7 @@ class CommentServiceProvider extends ServiceProvider
 
         Route::middleware('web')->namespace('Mlk\Comment\Http\Controllers')
         ->group(__DIR__ . '/../Routes/comment_routes.php');
+        Gate::policy(Comment::class, CommentPolicy::class);
     }
 
     public function boot()

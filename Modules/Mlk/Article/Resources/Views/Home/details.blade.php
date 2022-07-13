@@ -16,10 +16,10 @@
                 </h1>
                 <div class="entry-meta meta-1 font-x-small color-grey text-uppercase">
                     <span class="post-by">توسط <a href="author.html"> {{ $article->user->name }}</a></span>
-                    <span class="post-on">تاریخ انتشار : {{ jdate($article->created_at)->format('Y-m-d') }}</span>{{-- TODO --}}
+                    <span class="post-on">تاریخ انتشار : {{ jdate($article->created_at)->format('Y-m-d') }}</span>
                     <span class="time-reading">زمان خواندن {{ $article->time_to_read }} دقیقه</span>
                     <p class="font-x-small mt-10">
-                        <span class="hit-count"><i class="ti-comment ml-5"></i>نظرات 82</span>
+                        <span class="hit-count"><i class="ti-comment ml-5"></i>نظرات {{ $article->activeComments->count() }}</span>
                         <span class="hit-count"><i class="ti-heart ml-5"></i>لایک {{ $article->likers()->count() }}</span>
                         <span class="hit-count"><i class="ti-star ml-5"></i>امتیاز {{ $article->score }}/10</span>
                     </p>
@@ -47,9 +47,14 @@
                         <p>
                             {!! $article->body !!}
                         </p>
-                        <p class="text-center mt-30">
-                            <a href="#"><img class="d-inline border-radius-10" src="{{ asset('assets/imgs/ads.jpg') }}" alt=""></a>
-                        </p>
+                        @if (!is_null($adv))
+                            <p class="text-center mt-30">
+                                <a href="{{ $adv->link }}" title="{{ $adv->title }}">
+                                    <img class="d-inline border-radius-10" src="{{ $adv->imagePath }}"
+                                    alt="{{ $adv->title }}">
+                                </a>
+                            </p>
+                        @endif
                     </div>
                     <div class="entry-bottom mt-50 mb-30">
                         <div class="overflow-hidden mt-30">
@@ -114,14 +119,6 @@
                 </div>
                 <!-- Sidebar -->
                 @include('Article::Home.details.sidebar')
-            </div>
-            <!--End row-->
-            <div class="row">
-                <div class="col-12 text-center mb-50">
-                    <a href="#">
-                        <img class="border-radius-10 d-inline" src="{{ asset('assets/imgs/ads-3.png') }}" alt="advs">
-                    </a>
-                </div>
             </div>
         </div>
     </main>

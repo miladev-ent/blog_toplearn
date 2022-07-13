@@ -21,6 +21,11 @@ class AdvertisingRepo
         return $this->query()->where('id', $id)->delete();
     }
 
+    public function getAdvByLocation(string $location)
+    {
+        return $this->query()->where('location', $location);
+    }
+
     private function query()
     {
         return Advertising::query();
