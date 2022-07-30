@@ -2,9 +2,9 @@
 
 namespace Mlk\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Mlk\Share\Http\Controllers\Controller;
 
 class VerifyController extends Controller
 {

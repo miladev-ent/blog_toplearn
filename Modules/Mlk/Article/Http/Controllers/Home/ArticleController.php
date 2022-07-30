@@ -2,12 +2,12 @@
 
 namespace Mlk\Article\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use Mlk\Advertising\Models\Advertising;
 use Mlk\Advertising\Repositories\AdvertisingRepo;
 use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Comment\Repositories\CommentRepo;
 use Mlk\Home\Repositories\HomeRepo;
+use Mlk\Share\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {

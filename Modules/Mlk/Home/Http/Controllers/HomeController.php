@@ -2,10 +2,10 @@
 
 namespace Mlk\Home\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Mlk\Advertising\Models\Advertising;
 use Mlk\Advertising\Repositories\AdvertisingRepo;
 use Mlk\Home\Repositories\HomeRepo;
+use Mlk\Share\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         $adv_top = $advertisingRepo->getAdvByLocation(Advertising::LOCATION_TOP_MAIN_PAGE)->latest()->first();
         $adv_bottom = $advertisingRepo->getAdvByLocation(Advertising::LOCATION_BOTTOM_MAIN_PAGE)->latest()->first();
+
         return view('Home::index', compact(['homeRepo', 'adv_top', 'adv_bottom']));
     }
 }

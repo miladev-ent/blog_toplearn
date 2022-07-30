@@ -2,13 +2,13 @@
 
 namespace Mlk\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Mlk\Auth\Http\Requests\PasswordUpdateRequest;
 use Mlk\Auth\Http\Requests\SendEmailPasswordRecoveryRequest;
+use Mlk\Share\Http\Controllers\Controller;
 
 class ResetController extends Controller
 {

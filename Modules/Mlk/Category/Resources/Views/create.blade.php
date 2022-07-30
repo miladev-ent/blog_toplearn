@@ -39,11 +39,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="status">وضعیت دسته بندی</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control @error('status') is-invalid @enderror" name="status">
+                                            <x-panel-select name="status">
                                                 @foreach (Mlk\Category\Models\Category::$statuses as $status)
                                                     <option value="{{ $status }}">@lang($status)</option>
                                                 @endforeach
-                                            </select>
+                                            </x-panel-select>
                                             @error('status')
                                                 <br>
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -77,7 +77,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-success">ذخیره</button>
+{{--                                    <button type="submit" class="btn btn-outline-success">ذخیره</button>--}}
+                                    <x-panel-button />
                                 </form>
                             </div>
                         </div>

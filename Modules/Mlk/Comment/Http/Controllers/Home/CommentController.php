@@ -2,9 +2,9 @@
 
 namespace Mlk\Comment\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use Mlk\Comment\Http\Requests\CommentRequest;
 use Mlk\Comment\Services\CommentService;
+use Mlk\Share\Http\Controllers\Controller;
 use Mlk\Share\Repositories\ShareRepo;
 
 class CommentController extends Controller

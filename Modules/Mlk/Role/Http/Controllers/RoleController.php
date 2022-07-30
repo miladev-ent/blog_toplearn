@@ -2,12 +2,12 @@
 
 namespace Mlk\Role\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Mlk\Role\Http\Requests\RoleRequest;
 use Mlk\Role\Models\Role;
 use Mlk\Role\Repositories\PermissionRepo;
 use Mlk\Role\Repositories\RoleRepo;
 use Mlk\Role\Services\RoleService;
+use Mlk\Share\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {

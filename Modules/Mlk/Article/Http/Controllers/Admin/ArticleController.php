@@ -2,12 +2,12 @@
 
 namespace Mlk\Article\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Mlk\Article\Http\Requests\ArticleRequest;
 use Mlk\Article\Models\Article;
 use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Article\Services\ArticleService;
 use Mlk\Category\Repositories\CategoryRepo;
+use Mlk\Share\Http\Controllers\Controller;
 use Mlk\Share\Repositories\ShareRepo;
 use Mlk\Share\Services\ShareService;
 

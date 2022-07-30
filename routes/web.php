@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 //
 //Route::get('/', function () {
 //    return view('welcome');
@@ -10,3 +8,4 @@ use Illuminate\Support\Facades\Route;
 //Route::get('t', function () {
 //    auth()->user()->givePermissionTo(\Mlk\Role\Models\Permission::PERMISSION_SUPER_ADMIN);
 //});
+

@@ -2,9 +2,9 @@
 
 namespace Mlk\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Mlk\Auth\Http\Requests\LoginRequest;
+use Mlk\Share\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace Mlk\Category\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Mlk\Category\Http\Requests\CategoryRequest;
 use Mlk\Category\Models\Category;
 use Mlk\Category\Repositories\CategoryRepo;
 use Mlk\Category\Services\CategoryService;
+use Mlk\Share\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {

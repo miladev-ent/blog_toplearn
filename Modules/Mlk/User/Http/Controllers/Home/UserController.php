@@ -2,9 +2,9 @@
 
 namespace Mlk\User\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use Mlk\Article\Repositories\ArticleRepo;
 use Mlk\Role\Models\Permission;
+use Mlk\Share\Http\Controllers\Controller;
 use Mlk\Share\Repositories\ShareRepo;
 use Mlk\Share\Services\ShareService;
 use Mlk\User\Http\Requests\UpdateProfileRequest;

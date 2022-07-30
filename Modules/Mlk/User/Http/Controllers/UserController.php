@@ -2,8 +2,8 @@
 
 namespace Mlk\User\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Mlk\Role\Repositories\RoleRepo;
+use Mlk\Share\Http\Controllers\Controller;
 use Mlk\User\Http\Requests\AddRoleRequest;
 use Mlk\User\Http\Requests\UserRequest;
 use Mlk\User\Http\Requests\UserUpdateRequest;

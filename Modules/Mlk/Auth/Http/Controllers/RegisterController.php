@@ -2,10 +2,10 @@
 
 namespace Mlk\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Mlk\Auth\Http\Requests\RegisterRequest;
 use Mlk\Auth\Services\RegisterService;
+use Mlk\Share\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {

@@ -2,8 +2,8 @@
 
 namespace Mlk\Panel\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Mlk\Panel\Models\Panel;
+use Mlk\Share\Http\Controllers\Controller;
 
 class PanelController extends Controller
 {

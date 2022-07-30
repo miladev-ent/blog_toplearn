@@ -2,9 +2,9 @@
 
 namespace Mlk\Comment\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Mlk\Comment\Models\Comment;
 use Mlk\Comment\Repositories\CommentRepo;
+use Mlk\Share\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
