@@ -28,5 +28,10 @@ class PanelServiceProvider extends ServiceProvider
                 'icon'  => 'view-dashboard',
             ]);
         });
+
+        view()->composer(['Panel::section.navbar'], static function ($view) {
+            $notifications = auth()->user()->unreadNotifications;
+            $view->with(['notifications' => $notifications]);
+        });
     }
 }

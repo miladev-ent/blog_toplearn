@@ -4,84 +4,38 @@
             <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="false" aria-expanded="false">
                 <i class="fe-bell noti-icon"></i>
-                <span class="badge badge-danger rounded-circle noti-icon-badge">9</span>
+                @if (! is_null($notifications))
+                    <span class="badge badge-danger rounded-circle noti-icon-badge">{{ $notifications->count() }}</span>
+                @endif
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-lg">
                 <div class="dropdown-item noti-title">
                     <h5 class="m-0">
                         <span class="float-right">
-                            <a href="#" class="text-dark">
+                            <a href="{{ route('mark.notifications') }}" class="text-dark">
                                 <small>پاک کردن همه</small>
                             </a>
                         </span>اطلاعیه ها
                     </h5>
                 </div>
                 <div class="slimscroll noti-scroll">
-                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                        <div class="notify-icon">
-                            <img src="/admin/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="تصویر" /> </div>
-                        <p class="notify-details">علی کردی</p>
-                        <p class="text-muted mb-0 user-msg">
-                            <small>سلام چطوری؟ در مورد جلسه بعدی...</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-primary">
-                            <i class="mdi mdi-comment-account-outline"></i>
-                        </div>
-                        <p class="notify-details">پیام خصوصی از طرف رضا
-                            <small class="text-muted">1 دقیقه پیش</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon">
-                            <img src="/admin/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="تصویر" /> </div>
-                        <p class="notify-details">سجاد صابری</p>
-                        <p class="text-muted mb-0 user-msg">
-                            <small>ادمین تو واقعا عالیه</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-warning">
-                            <i class="mdi mdi-account-plus"></i>
-                        </div>
-                        <p class="notify-details">ثبت نام کاربر تازه
-                            <small class="text-muted">5 ساعت پیش</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-info">
-                            <i class="mdi mdi-comment-account-outline"></i>
-                        </div>
-                        <p class="notify-details">پیام خصوصی از طرف رضا
-                            <small class="text-muted">4 روز پیش</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-secondary">
-                            <i class="mdi mdi-heart"></i>
-                        </div>
-                        <p class="notify-details">لایک از طرف
-                            <b>مدیر</b>
-                            <small class="text-muted">13 روز پیش</small>
-                        </p>
-                    </a>
+                    @if (! is_null($notifications))
+                        @foreach ($notifications as $notification)
+                            {{ $notification->markAsRead() }}
+                            <a href="{{ $notification->data['url'] }}" target="_blank" class="dropdown-item notify-item active">
+                                <div class="notify-icon">
+                                    <img src="/admin/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="تصویر" />
+                                </div>
+                                <p class="notify-details">{{ $notification->data['title'] }}</p>
+                                <p class="text-muted mb-0 user-msg">
+                                    <small>{{ $notification->data['message'] }}</small>
+                                </p>
+                            </a>
+                        @endforeach
+                    @else
+                        <p>هیچ اعلانی وجود ندارد</p>
+                    @endif
                 </div>
-                <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                    مشاهده همه
-                    <i class="fi-arrow-right"></i>
-                </a>
-
             </div>
         </li>
         <li class="dropdown notification-list">
