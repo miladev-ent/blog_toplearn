@@ -2,6 +2,7 @@
 
 namespace Mlk\Home\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Mlk\Advertising\Models\Advertising;
 use Mlk\Advertising\Repositories\AdvertisingRepo;
 use Mlk\Home\Repositories\HomeRepo;
@@ -11,6 +12,9 @@ class HomeController extends Controller
 {
     public function index(HomeRepo $homeRepo, AdvertisingRepo $advertisingRepo)
     {
+//        dd(Storage::disk('local')->get('private/milwad.txt'));
+//        dd(Storage::disk('local')->get('private/laravel-frame.png'));
+
         $adv_top = $advertisingRepo->getAdvByLocation(Advertising::LOCATION_TOP_MAIN_PAGE)->latest()->first();
         $adv_bottom = $advertisingRepo->getAdvByLocation(Advertising::LOCATION_BOTTOM_MAIN_PAGE)->latest()->first();
 
