@@ -22,6 +22,12 @@
                         <span class="hit-count"><i class="ti-comment ml-5"></i>نظرات {{ $article->activeComments->count() }}</span>
                         <span class="hit-count"><i class="ti-heart ml-5"></i>لایک {{ $article->likers()->count() }}</span>
                         <span class="hit-count"><i class="ti-star ml-5"></i>امتیاز {{ $article->score }}/10</span>
+                        <form action="{{ route('articles.like', $article->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn" style="background: #0c9550">
+                                {{ auth()->user()->hasLiked($article) ? 'آن لایک کردن' : 'لایک کردن' }}
+                            </button>
+                        </form>
                     </p>
                 </div>
             </div>
