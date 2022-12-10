@@ -12,6 +12,7 @@
 */
 
 return [
+    'password.storng' => 'رمز عبور باید حاوی حروف کوچک بزرگ، اعداد و کاراکتر های خاص باشد.',
     'accepted'             => ':attribute باید پذیرفته شده باشد.',
     'accepted_if'          => ':attribute باید پذیرفته شده باشد وقتی :other برابر :value است.',
     'active_url'           => 'آدرس :attribute معتبر نیست.',
