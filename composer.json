@@ -12,6 +12,7 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "milwad/laravel-validate": "dev-main",
         "morilog/jalali": "3.*",
         "opcodesio/log-viewer": "^1.7",
         "overtrue/laravel-like": "^5.0",

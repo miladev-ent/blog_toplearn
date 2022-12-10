@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a13eea88418b7519c9a7a5289b4f4206",
+    "content-hash": "e0bb086f292d764adf9e5b2d3db3b9e5",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2030,6 +2030,62 @@
                 "source": "https://github.com/maximebf/php-debugbar/tree/v1.18.1"
             },
             "time": "2022-03-31T14:55:54+00:00"
+        },
+        {
+            "name": "milwad/laravel-validate",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milwad-dev/laravel-validate.git",
+                "reference": "00049d7225cc3f63f308268a9f4d9a96db2c8ba5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milwad-dev/laravel-validate/zipball/00049d7225cc3f63f308268a9f4d9a96db2c8ba5",
+                "reference": "00049d7225cc3f63f308268a9f4d9a96db2c8ba5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0|^8.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Milwad\\LaravelValidate\\LaravelValidateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Milwad\\LaravelValidate\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "milwad khosravi",
+                    "email": "milwad.dev@gmail.com",
+                    "homepage": "https://milwad.ir",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Write rules easy & fast",
+            "keywords": [
+                "laravel-validate",
+                "milwad",
+                "regex",
+                "validate"
+            ],
+            "support": {
+                "issues": "https://github.com/milwad-dev/laravel-validate/issues",
+                "source": "https://github.com/milwad-dev/laravel-validate/tree/main"
+            },
+            "time": "2022-08-06T08:36:59+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8539,7 +8595,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "milwad/laravel-validate": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
