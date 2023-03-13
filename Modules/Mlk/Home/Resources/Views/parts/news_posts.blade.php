@@ -27,6 +27,15 @@
                                 <a class="entry-meta meta-2" href="category.html">
                                     <span class="post-in text-danger font-x-small">{{ $article->category->title }}</span>
                                 </a>
+                                @if ($article->isVideoArticle())
+                                    <a class="entry-meta meta-2" href="#">
+                                        <span class="post-in text-info font-x-small">  ویدیویی ✅</span>
+                                    </a>
+                                @else
+                                    <a class="entry-meta meta-2" href="#">
+                                        <span class="post-in text-info font-x-small">  متنی ✅</span>
+                                    </a>
+                                @endif
                             </div>
                             <h5 class="post-title mb-15 text-limit-2-row">
                                 <a href="{{ $article->path() }}">{{ $article->title }}</a>

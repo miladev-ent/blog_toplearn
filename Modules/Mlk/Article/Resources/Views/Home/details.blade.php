@@ -54,6 +54,12 @@
                         <p>
                             {!! $article->body !!}
                         </p>
+                        @if ($article->isVideoArticle())
+                            <video width="1000" height="250" controls>
+                                <source src="{{ $article->videoPath }}" type="video/mp4">
+                                مرورگر شما از ویدیو پشتیبانی نمیکنید.
+                            </video>
+                        @endif
                         @if (!is_null($adv))
                             <p class="text-center mt-30">
                                 <a href="{{ $adv->link }}" title="{{ $adv->title }}">

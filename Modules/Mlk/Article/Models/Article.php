@@ -6,6 +6,7 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mlk\Article\Enums\TypeTextArticleEnum;
 use Mlk\Category\Models\Category;
 use Mlk\Comment\Trait\HaveComments;
 use Mlk\User\Models\User;
@@ -53,6 +54,11 @@ class Article extends Model implements Viewable
     public function path()
     {
         return route('articles.details', $this->slug);
+    }
+
+    public function isVideoArticle(): bool
+    {
+        return $this->type_text === TypeTextArticleEnum::TYPE_TEXT_VIDEO->value && ! is_null($this->videoName);
     }
 
 //    public function getCommentCount()
