@@ -17,7 +17,7 @@ class Article extends Model implements Viewable
 
     protected $fillable = [
         'user_id', 'category_id', 'title', 'slug', 'time_to_read', 'imageName', 'imagePath', 'score', 'status',
-        'type', 'body', 'keywords', 'description',
+        'type', 'body', 'keywords', 'description', 'type_text', 'videoName', 'videoPath'
     ];
 
     public const STATUS_ACTIVE = 'active';

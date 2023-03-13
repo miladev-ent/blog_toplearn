@@ -2,6 +2,7 @@
 
 namespace Mlk\Article\Http\Controllers\Admin;
 
+use Mlk\Article\Enums\TypeTextArticleEnum;
 use Mlk\Article\Http\Requests\ArticleRequest;
 use Mlk\Article\Models\Article;
 use Mlk\Article\Repositories\ArticleRepo;
@@ -45,10 +46,21 @@ class ArticleController extends Controller
         $this->authorize('manage', $this->class);
 
         [$imageName, $imagePath] = ShareService::uploadImage($request->file('image'), 'articles');
+        if ($request->type_text === TypeTextArticleEnum::TYPE_TEXT_VIDEO->value) {
+            [$videoName, $videoPath] = ShareService::uploadVideo($request->file('video'), 'articles');
+        } else {
+            [$videoName, $videoPath] = null;
+        }
 
-        $this->service->store($request, auth()->id(), $imageName, $imagePath);
+        $this->service->store(
+            $request,
+            auth()->id(),
+            $imageName,
+            $imagePath,
+            $videoName,
+            $videoPath
+        );
 
-//        alert()->success(, 'عملیات با موفقیت انجام شد');
         ShareRepo::successMessage('ساخت مقاله');
         return to_route('articles.index');
     }

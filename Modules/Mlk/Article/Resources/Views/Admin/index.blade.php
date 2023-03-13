@@ -27,6 +27,7 @@
                                     <th>امتیاز</th>
                                     <th>دسته بندی</th>
                                     <th>کاربر</th>
+                                    <th>نوع متن مقاله</th>
                                     <th>تاریخ ساخت</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -49,6 +50,7 @@
                                         <td>{{ $article->score }} امتیاز </td>
                                         <td>{{ $article->category->title }}</td>
                                         <td>{{ $article->user->name }}</td>
+                                        <td>@lang($article->type_text)</td>
                                         <td>{{ jdate($article->created_at)->format('Y-m-d') }}</td>
                                         <td>
                                             <div class="row">
