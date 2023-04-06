@@ -35,6 +35,7 @@ class RoleServiceProvider extends ServiceProvider
             'url'   => route('roles.index'),
             'title' => 'مقام ها',
             'icon'  => 'bug',
+            'permissions' => [Permission::PERMISSION_ROLES]
         ]);
     }
 }

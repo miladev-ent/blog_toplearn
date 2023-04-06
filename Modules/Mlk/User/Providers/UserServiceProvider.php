@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Mlk\Role\Models\Permission;
 use Mlk\User\Models\User;
 use Mlk\User\Policies\UserPolicy;
 
@@ -30,6 +31,9 @@ class UserServiceProvider extends ServiceProvider
             'url'   => route('users.index'),
             'title' => 'کاربران',
             'icon'  => 'account',
+            'permissions' => [
+                Permission::PERMISSION_USERS
+            ]
         ]);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Mlk\Category\Models\Category;
 use Mlk\Category\Policies\CategoryPolicy;
+use Mlk\Role\Models\Permission;
 
 class CategoryServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,7 @@ class CategoryServiceProvider extends ServiceProvider
             'url'   => route('categories.index'),
             'title' => 'دسته بندی ها',
             'icon'  => 'folder-open-outline',
+            'permissions' => [Permission::PERMISSION_CATEGORIES]
         ]);
     }
 }

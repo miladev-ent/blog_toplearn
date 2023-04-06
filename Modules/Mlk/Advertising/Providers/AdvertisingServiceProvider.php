@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Mlk\Advertising\Models\Advertising;
 use Mlk\Advertising\Policies\AdvertisingPolicy;
+use Mlk\Role\Models\Permission;
 
 class AdvertisingServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,9 @@ class AdvertisingServiceProvider extends ServiceProvider
             'url'   => route('advertisings.index'),
             'title' => 'تبلیغات',
             'icon'  => 'file',
+            'permissions' => [
+                Permission::PERMISSION_ADVERTISINGS
+            ]
         ]);
     }
 }

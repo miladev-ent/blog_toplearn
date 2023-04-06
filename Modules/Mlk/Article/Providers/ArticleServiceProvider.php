@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Mlk\Article\Models\Article;
 use Mlk\Article\Policies\ArticlePolicy;
+use Mlk\Role\Models\Permission;
 
 class ArticleServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,9 @@ class ArticleServiceProvider extends ServiceProvider
             'url'   => route('articles.index'),
             'title' => 'مقالات',
             'icon'  => 'book',
+            'permissions' => [
+                Permission::PERMISSION_ARTICLES
+            ]
         ]);
     }
 }
