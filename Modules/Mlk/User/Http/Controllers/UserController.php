@@ -97,8 +97,10 @@ class UserController extends Controller
     public function removeRole($userId, $roleId, RoleRepo $roleRepo)
     {
         $this->authorize('index', User::class);
+
         $user = $this->repo->findById($userId);
         $role = $roleRepo->findById($roleId);
+
         $this->service->deleteRole($user, $role->name);
 
         alert()->success('حذف کردن مقام', 'عملیات با موفقیت انجام شد');
