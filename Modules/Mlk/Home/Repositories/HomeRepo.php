@@ -73,4 +73,18 @@ class HomeRepo
             ->limit(5)
             ->get();
     }
+
+    /**
+     * Search articles.
+     *
+     * @param  string $search
+     * @return Article[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\LaravelIdea\Helper\Mlk\Article\Models\_IH_Article_C|\LaravelIdea\Helper\Mlk\Article\Models\_IH_Article_QB[]
+     */
+    public function searchArticle(string $search)
+    {
+        return Article::query()
+            ->where('title', 'LIKE', "%$search%")
+            ->where('body', 'LIKE', "%$search%")
+            ->get();
+    }
 }

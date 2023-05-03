@@ -109,8 +109,8 @@
                             </ul>
                         </nav>
                     </div>
-                    <form action="#" method="get" class="search-form d-lg-inline float-left position-relative ml-30 d-none">
-                        <input type="text" class="search_field" placeholder="جستجو ..." value="" name="s">
+                    <form action="{{ route('search') }}" method="get" class="search-form d-lg-inline float-left position-relative ml-30 d-none">
+                        <input type="text" class="search_field" placeholder="جستجو ..." value="{{ old('title') }}" name="title">
                         <span class="search-icon"><i class="ti-search mr-5"></i></span>
                     </form>
                     <div class="off-canvas-toggle-cover">
