@@ -82,8 +82,16 @@ class ArticleController extends Controller
         $article = $this->repo->findById($id);
 
         [$imageName, $imagePath] = $this->uploadImage($file, $article);
+        [$videoName, $videoPath] = $this->proccessUploadVideo($request, $article);
 
-        $this->service->update($request, $id, $imageName, $imagePath);
+        $this->service->update(
+            $request,
+            $id,
+            $imageName,
+            $imagePath,
+            $videoName,
+            $videoPath
+        );
 
         ShareRepo::successMessage('ویرایش مقاله');
         return to_route('articles.index');
@@ -122,5 +130,24 @@ class ArticleController extends Controller
         }
 
         return array($imageName, $imagePath);
+    }
+
+    /**
+     * @param ArticleRequest $request
+     * @param Article $article
+     * @return array
+     */
+    public function proccessUploadVideo(ArticleRequest $request, Article $article): array
+    {
+        $video = $request->file('video');
+
+        if ($request->type_text === TypeTextArticleEnum::TYPE_TEXT_VIDEO->value && $video) {
+            [$videoName, $videoPath] = ShareService::uploadVideo($video, 'articles');
+        } elseif (! is_null($article->video)) {
+            $videoName = $article->videoName;
+            $videoPath = $article->videoPath;
+        }
+
+        return array($videoName, $videoPath);
     }
 }
