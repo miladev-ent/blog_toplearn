@@ -37,7 +37,7 @@ class ResetController extends Controller
 
     public function update(PasswordUpdateRequest $request)
     {
-        $reset = Password::reset(
+        Password::reset(
             $request->only('token', 'email', 'password', 'password_confirmation'),
             static function ($user, $password) {
                 $user->forceFill(['password' => bcrypt($password)])->setRememberToken(Str::random(60));
@@ -48,9 +48,10 @@ class ResetController extends Controller
             }
         );
 
-        dd($reset);
-        return $reset === Password::PASSWORD_RESET ?
-            to_route('login')->with(['success_reset_password' => 'رمز عبور شما با موفقیت تغییر کرد.']) :
-            back()->withErrors(['error' => 'مشکلی در سیستم به وجود امده لطفا بعدا تلاش کنید.']);
+        return to_route('login')->with(['success_reset_password' => 'رمز عبور شما با موفقیت تغییر کرد.']);
+
+        //        return $reset === Password::PASSWORD_RESET ?
+//            to_route('login')->with(['success_reset_password' => 'رمز عبور شما با موفقیت تغییر کرد.']) :
+//            back()->withErrors(['error' => 'مشکلی در سیستم به وجود امده لطفا بعدا تلاش کنید.']);
     }
 }

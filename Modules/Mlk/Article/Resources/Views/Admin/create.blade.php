@@ -132,9 +132,12 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="body">توضیحات اصلی</label>
                                         <div class="col-sm-10">
-                                            <textarea rows="3" class="form-control @error('body') is-invalid @enderror"
-                                            id="body" name="body"
-                                            placeholder="توضیحات اصلی مقاله را وارد کنید">{{ old('body') }}</textarea>
+                                            <textarea rows="3"
+                                                class="form-control ckeditor @error('body') is-invalid @enderror"
+                                                id="body"
+                                                name="body"
+                                                placeholder="توضیحات اصلی مقاله را وارد کنید"
+                                                >{{ old('body') }}</textarea>
                                             @error('body')
                                                 <br>
                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -184,4 +187,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
 @endsection
